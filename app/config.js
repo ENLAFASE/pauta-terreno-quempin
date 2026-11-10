@@ -3,7 +3,7 @@
 // cambia aquí y en ORIGENES de servicio/wrangler.toml.
 const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
 
-export const API = LOCAL ? 'http://localhost:8787' : 'https://terreno-quempin.SUBDOMINIO.workers.dev';
+export const API = LOCAL ? 'http://localhost:8787' : 'https://terreno-quempin.pauta-terreno-quempin.workers.dev';
 
 // Fase 0: todas las fotos van a la carpeta de prueba con esta clave.
 export const CLAVE_PRUEBA = 'prueba:fase0';

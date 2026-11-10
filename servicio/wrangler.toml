@@ -19,4 +19,4 @@ ORIGENES = "https://enlafase.github.io,http://localhost:5173"
 [[d1_databases]]
 binding = "DB"
 database_name = "terreno-quempin"
-database_id = ""      # lo entrega «npx wrangler d1 create terreno-quempin»
+database_id = "ceec5c89-a65f-4f0b-8f01-f2c3c06b432f"      # lo entrega «npx wrangler d1 create terreno-quempin»
