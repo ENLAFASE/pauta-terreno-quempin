@@ -1,0 +1,22 @@
+# Servicio de terreno en Cloudflare Workers. Los identificadores de abajo no son secretos
+# (salen de la guía de configuración de la fase 0). El secreto de cliente NO va aquí:
+#   npx wrangler secret put GRAPH_CLIENT_SECRET --config servicio/wrangler.toml
+# Para probar en el PC, va en servicio/.dev.vars (que git ignora).
+
+name = "terreno-quempin"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+TENANT_ID = ""        # Id. de directorio (inquilino)
+CLIENT_ID = ""        # Id. de aplicación de «QUEMPIN Servicio de terreno»
+SITIO_ID = ""         # id del sitio Gestión de Proyectos
+LISTA_ID = ""         # id de la lista «Registro de terreno»
+CARPETA_BASE = "0 Prueba app terreno"
+# Páginas que pueden llamar al servicio (origen, sin ruta). Al migrar a la cuenta de la empresa se cambia aquí y en app/config.js.
+ORIGENES = "https://enlafase.github.io,http://localhost:5173"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "terreno-quempin"
+database_id = ""      # lo entrega «npx wrangler d1 create terreno-quempin»

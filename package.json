@@ -1,0 +1,16 @@
+{
+  "name": "pauta-terreno-quempin",
+  "private": true,
+  "description": "Pauta de terreno y app de registro fotográfico de QUEMPIN",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "servicio": "wrangler dev --config servicio/wrangler.toml --local",
+    "desplegar": "wrangler deploy --config servicio/wrangler.toml",
+    "simulador": "python herramientas/simulador.py"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}

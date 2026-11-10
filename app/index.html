@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FF5100">
+  <title>QUEMPIN Terreno</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="iconos/icono-192.png">
+  <link rel="apple-touch-icon" href="iconos/icono-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <span class="marca">QUEMPIN <b>Terreno</b></span>
+    <span id="quien" class="quien"></span>
+    <button id="salir" class="boton-texto" type="button" hidden>Salir</button>
+  </header>
+
+  <main>
+    <section id="pantalla-ingreso" hidden>
+      <h1>Entrar</h1>
+      <form id="form-ingreso" autocomplete="on">
+        <label>Usuario <input id="usuario" name="username" autocomplete="username" autocapitalize="none" required></label>
+        <label>Clave <input id="clave" name="password" type="password" autocomplete="current-password" required></label>
+        <button class="boton grande" type="submit">Entrar</button>
+        <p id="mensaje-ingreso" class="mensaje" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="pantalla-clave" hidden>
+      <h1>Cambiar la clave</h1>
+      <p id="motivo-clave"></p>
+      <form id="form-clave">
+        <label>Clave actual <input id="clave-actual" type="password" autocomplete="current-password" required></label>
+        <label>Clave nueva (10 caracteres o más) <input id="clave-nueva" type="password" autocomplete="new-password" minlength="10" required></label>
+        <label>Repite la clave nueva <input id="clave-repetir" type="password" autocomplete="new-password" minlength="10" required></label>
+        <button class="boton grande" type="submit">Guardar clave</button>
+        <button id="clave-despues" class="boton secundario" type="button" hidden>Más tarde</button>
+        <p id="mensaje-clave" class="mensaje" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="pantalla-fotos" hidden>
+      <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <p id="aviso-clave" class="aviso" hidden></p>
+
+      <fieldset class="momentos">
+        <legend>Momento</legend>
+        <button type="button" data-momento="antes">Antes</button>
+        <button type="button" data-momento="durante">Durante</button>
+        <button type="button" data-momento="despues">Después</button>
+        <button type="button" data-momento="otro">Otro</button>
+      </fieldset>
+
+      <label class="comentario">Comentario (opcional)
+        <textarea id="comentario" rows="2" maxlength="2000"></textarea>
+      </label>
+
+      <label class="boton grande" for="archivo-camara">Tomar foto</label>
+      <input id="archivo-camara" type="file" accept="image/*" capture="environment" hidden>
+      <div class="fila-botones">
+        <button id="abrir-camara" class="boton secundario" type="button">Cámara en la app</button>
+        <label class="boton secundario" for="archivo-galeria">Desde galería</label>
+      </div>
+      <input id="archivo-galeria" type="file" accept="image/*" multiple hidden>
+
+      <h2>En este teléfono</h2>
+      <ul id="lista" class="lista"></ul>
+      <p id="otras" class="nota" hidden></p>
+      <button id="subir-ahora" class="boton secundario" type="button">Subir ahora</button>
+      <p id="contador" class="nota"></p>
+    </section>
+  </main>
+
+  <div id="camara" class="camara" hidden>
+    <video id="video" playsinline muted></video>
+    <div class="camara-barra">
+      <button id="cerrar-camara" class="boton secundario" type="button">Listo</button>
+      <button id="disparar" class="disparador" type="button" aria-label="Tomar foto"></button>
+      <span id="tomadas" class="tomadas"></span>
+    </div>
+  </div>
+
+  <div id="aviso" class="tostada" role="status" hidden></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

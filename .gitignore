@@ -1,0 +1,16 @@
+# Secretos y datos: nunca al repo (es público)
+.dev.vars
+servicio/.dev.vars
+.usuarios/
+.simulador/
+*.pem
+*.pfx
+
+# Dependencias y archivos de Wrangler
+node_modules/
+.wrangler/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
