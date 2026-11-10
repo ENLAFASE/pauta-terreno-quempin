@@ -10,7 +10,8 @@ import {
 import { leerRegistro, validarRegistro, rutaFoto, camposLista, esJpeg, MAX_BYTES } from './registro.js';
 import { subirArchivo, agregarFila, ErrorGraph } from './graph.js';
 
-export const VERSION = 'fase0-2026-11-09';
+// Sin «export»: Workers trata cada export del archivo de entrada como un manejador.
+const VERSION = 'fase0-2026-11-10';
 
 export default {
   async fetch(req, env) {

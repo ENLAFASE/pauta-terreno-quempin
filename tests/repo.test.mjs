@@ -37,6 +37,12 @@ test('wrangler.toml no tiene el secreto de Graph', () => {
   assert.doesNotMatch(t, /^\s*GRAPH_CLIENT_SECRET\s*=/m);
 });
 
+// Workers trata cada export del archivo de entrada como un manejador y no arranca si hay otro (2026-11-10).
+test('servicio/src/index.js solo exporta el manejador por defecto', () => {
+  const t = readFileSync(join(RAIZ, 'servicio', 'src', 'index.js'), 'utf8');
+  assert.deepEqual(t.match(/^export\s+(?!default\b).*/gm) || [], []);
+});
+
 test('el service worker guarda todos los archivos de la app', () => {
   const sw = readFileSync(join(RAIZ, 'app', 'sw.js'), 'utf8');
   for (const a of readdirSync(join(RAIZ, 'app')).filter((n) => /\.(js|css|html|webmanifest)$/.test(n) && n !== 'sw.js')) {
